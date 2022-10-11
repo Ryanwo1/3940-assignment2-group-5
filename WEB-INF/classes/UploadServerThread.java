@@ -1,6 +1,10 @@
-import java.net.*;
-import java.io.*;
-import java.time.Clock;
+package WEB;
+
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
 public class UploadServerThread extends Thread {
    private Socket socket = null;
    public UploadServerThread(Socket socket) {
@@ -10,10 +14,10 @@ public class UploadServerThread extends Thread {
    public void run() {
       try {
          InputStream in = socket.getInputStream(); 
-         HttpServletRequest req = new HttpServletRequest(in);  
+         WEB.HttpServletRequest req = new WEB.HttpServletRequest(in);
          OutputStream baos = new ByteArrayOutputStream(); 
-         HttpServletResponse res = new HttpServletResponse(baos); 
-         HttpServlet httpServlet = new UploadServlet();
+         WEB.HttpServletResponse res = new WEB.HttpServletResponse(baos);
+         WEB.HttpServlet httpServlet = new WEB.UploadServlet();
          httpServlet.doPost(req, res);
          OutputStream out = socket.getOutputStream(); 
          out.write(((ByteArrayOutputStream) baos).toByteArray());

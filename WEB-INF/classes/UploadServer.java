@@ -1,5 +1,7 @@
-import java.net.*;
-import java.io.*;
+package WEB;
+
+import java.io.IOException;
+import java.net.ServerSocket;
 public class UploadServer {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
@@ -10,7 +12,7 @@ public class UploadServer {
             System.exit(-1);
         }
         while (true) {
-	    new UploadServerThread(serverSocket.accept()).start();
+	    new WEB.UploadServerThread(serverSocket.accept()).start();
         }
     }
 }

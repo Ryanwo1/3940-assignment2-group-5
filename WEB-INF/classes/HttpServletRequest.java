@@ -1,4 +1,6 @@
-import java.io.*;
+package WEB;
+
+import java.io.InputStream;
 public class HttpServletRequest {
    private InputStream inputStream = null;
    public HttpServletRequest(InputStream inputStream) {

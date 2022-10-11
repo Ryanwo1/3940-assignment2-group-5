@@ -1,6 +1,6 @@
-package classes;
+package WEB;
 
-import java.io.*;
+import java.io.IOException;
 public class Activity {
    private String dirName = null; 
    public static void main(String[] args) throws IOException {
@@ -9,6 +9,6 @@ public class Activity {
    public Activity() {
    }
    public void onCreate() {
-      System.out.println(new UploadClient().uploadFile());
+      System.out.println(new WEB.UploadClient().uploadFile());
    }
 }
